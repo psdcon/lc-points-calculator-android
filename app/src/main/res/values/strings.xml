@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">LC Points Calculator 2017</string>
+    <string name="spinner_prompt">Select Subject...</string>
+
+    <!--For first time run-->
+    <string name="pref_previously_started">false</string>
+
+    <string-array name="lcvp_grades">
+        <item>Pass</item>
+        <item>Merit</item>
+        <item>Distinction</item>
+    </string-array>
+
+</resources>

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/calculator_row"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <!-- -8dp margin so that selected item which includes padding for indentatino still lines up as expected/-->
+        <Spinner
+            android:id="@+id/subject_spinner"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="-8dp"
+            android:layout_weight="1"
+            android:prompt="@string/spinner_prompt" />
+
+        <ToggleButton
+            android:id="@+id/grade_level_btn"
+            android:layout_width="60dip"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:background="?android:attr/selectableItemBackground"
+            android:checked="true"
+            android:gravity="center"
+            android:textOff="O"
+            android:textOn="H" />
+        <!--@android:color/transparent-->
+        <EditText
+            android:id="@+id/grade_value_input"
+            android:layout_width="50dip"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:gravity="center"
+            android:imeOptions="actionNext"
+            android:inputType="number"
+            android:maxLength="1"
+            android:singleLine="true"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+
+        <TextView
+            android:id="@+id/points_textview"
+            android:layout_width="24dip"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginBottom="-10dip"
+            android:layout_marginLeft="5dip"
+            android:gravity="center_horizontal"
+            android:text="0"
+            android:textAppearance="?android:attr/textAppearanceSmall" />
+
+    </LinearLayout>
+
+</LinearLayout>
