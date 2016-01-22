@@ -5,7 +5,7 @@ android {
     buildToolsVersion "23.0.1"
 
     defaultConfig {
-        applicationId "ie.psdcon.paul.leavingcertcalculator"
+        applicationId "com.iamapaulling.paul.leavingcertcalculator"
         minSdkVersion 15
         targetSdkVersion 23
         versionCode 103

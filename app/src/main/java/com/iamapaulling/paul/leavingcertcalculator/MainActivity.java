@@ -1,4 +1,4 @@
-package ie.psdcon.paul.leavingcertcalculator;
+package com.iamapaulling.paul.leavingcertcalculator;
 
 import android.content.Context;
 import android.content.Intent;
