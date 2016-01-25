@@ -1,6 +1,8 @@
 package com.iamapaulling.paul.leavingcertcalculator;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Paint;
@@ -196,8 +198,7 @@ public class MainActivity extends AppCompatActivity {
                 // Set subject limit of 20
                 if (numRows > subjectLimit) {
                     Toast.makeText(MainActivity.this, "Sorry Einstein, subject limit reached", Toast.LENGTH_SHORT).show();
-                }
-                else {
+                } else {
                     int thisIndex = numRows;
                     numRows++;
 
@@ -211,7 +212,7 @@ public class MainActivity extends AppCompatActivity {
         };
     }
 
-    private void setLastEdiTextIMEDONE(int index){
+    private void setLastEdiTextIMEDONE(int index) {
         // Replace old DONE with NEXT, add NEXT to the new one, update IMEIndex
         subjectGrades.get(IMEDoneIndex).setImeOptions(EditorInfo.IME_ACTION_NEXT);
         EditText thisEditText = subjectGrades.get(index);
@@ -237,7 +238,7 @@ public class MainActivity extends AppCompatActivity {
         };
     }
 
-    private void addLCVPRow(boolean animate){
+    private void addLCVPRow(boolean animate) {
         LinearLayout scrollingLayoutContainer = (LinearLayout) findViewById(R.id.scroll_container);
 
         LayoutInflater inflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -254,12 +255,12 @@ public class MainActivity extends AppCompatActivity {
 
         scrollingLayoutContainer.addView(customView);
 
-        if (animate){
+        if (animate) {
             // Fade in row
             Animation bottomUp = AnimationUtils.loadAnimation(MainActivity.this, R.anim.fade_in);
             customView.startAnimation(bottomUp);
         }
-    };
+    }
 
     // Calculator row listeners
     // Spinner listener. Handles duplicate Maths by showing a toast and resetting selection to 0
@@ -359,7 +360,7 @@ public class MainActivity extends AppCompatActivity {
             }
 
             // Update points TextView
-            subjectPoints.get(i).setText(String.format("%d",thisPoints));
+            subjectPoints.get(i).setText(String.format("%d", thisPoints));
 
             // Add point to the array
             totalPointsArray[i] = new Pair(i, thisPoints);
@@ -382,7 +383,7 @@ public class MainActivity extends AppCompatActivity {
                     break;
             }
 
-            subjectPoints.get(LCVPIndex).setText(String.format("%d",thisPoints));
+            subjectPoints.get(LCVPIndex).setText(String.format("%d", thisPoints));
 
 
             totalPointsArray[LCVPIndex] = new Pair(LCVPIndex, thisPoints);
@@ -406,7 +407,7 @@ public class MainActivity extends AppCompatActivity {
             thisTV.setPaintFlags(thisTV.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
         }
 
-        totalPointsTextView.setText(String.format("%d",totalPointsValue));
+        totalPointsTextView.setText(String.format("%d", totalPointsValue));
     }
 
     //http://stackoverflow.com/questions/23587314/how-to-sort-an-array-and-keep-track-of-the-index-in-java/23587379#23587379
@@ -427,7 +428,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-
     @Override
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
@@ -436,17 +436,17 @@ public class MainActivity extends AppCompatActivity {
         if (numRows == 6)
             return;
 
-        int[] spinnerSelection = new int[numRows-6];
-        boolean[] levelSelection = new boolean[numRows-6];
-        String[] gradeSelection = new String[numRows-6];
+        int[] spinnerSelection = new int[numRows - 6];
+        boolean[] levelSelection = new boolean[numRows - 6];
+        String[] gradeSelection = new String[numRows - 6];
 
-        for (int i=0; i < numRows-6; i++){
-            if (subjectSpinners.get(i+6) == null)
+        for (int i = 0; i < numRows - 6; i++) {
+            if (subjectSpinners.get(i + 6) == null)
                 continue;
 
-            spinnerSelection[i] = subjectSpinners.get(i+6).getSelectedItemPosition();
-            levelSelection[i] = subjectLevels.get(i+6).isChecked();
-            gradeSelection[i] = subjectGrades.get(i+6).getText().toString();
+            spinnerSelection[i] = subjectSpinners.get(i + 6).getSelectedItemPosition();
+            levelSelection[i] = subjectLevels.get(i + 6).isChecked();
+            gradeSelection[i] = subjectGrades.get(i + 6).getText().toString();
         }
 
         outState.putIntArray("spinnerSelection", spinnerSelection);
@@ -463,7 +463,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onRestoreInstanceState(Bundle savedInstanceState) {
         super.onRestoreInstanceState(savedInstanceState);
         // No items saved
-        if(savedInstanceState.getIntArray("spinnerSelection") == null)
+        if (savedInstanceState.getIntArray("spinnerSelection") == null)
             return;
 
         // Get saved rows
@@ -475,10 +475,13 @@ public class MainActivity extends AppCompatActivity {
 
         LCVPIndex = savedInstanceState.getInt("LCVPIndex");
 
-        for(int i=0; i < spinnerSelection.length; i++){ // Restore spinner position
+        if (spinnerSelection == null || levelSelection == null || gradeSelection == null)
+            return;
+
+        for (int i = 0; i < spinnerSelection.length; i++) { // Restore spinner position
             numRows++;
 
-            if (LCVPIndex == i+6){
+            if (LCVPIndex == i + 6) {
                 // Add LCVP row and then set spinner
                 addLCVPRow(false);
                 LCVPSpinnerGrade.setSelection(savedInstanceState.getInt("LCVPSpinnerSelection"));
@@ -488,9 +491,9 @@ public class MainActivity extends AppCompatActivity {
             addCalculatorRow(i + 6, false);
             setLastEdiTextIMEDONE(i + 6);
             // Set rows
-            subjectSpinners.get(i+6).setSelection(spinnerSelection[i]);
-            subjectLevels.get(i+6).setChecked(levelSelection[i]);
-            subjectGrades.get(i+6).setText(gradeSelection[i]);
+            subjectSpinners.get(i + 6).setSelection(spinnerSelection[i]);
+            subjectLevels.get(i + 6).setChecked(levelSelection[i]);
+            subjectGrades.get(i + 6).setText(gradeSelection[i]);
         }
         restoring = false;
         calculateTotalPoints();
@@ -515,11 +518,22 @@ public class MainActivity extends AppCompatActivity {
             MainActivity.this.startActivity(new Intent(MainActivity.this, AboutActivity.class));
             return true;
         } else if (id == R.id.action_reset) {
-            Intent intent = getIntent();
-            finish();
-            overridePendingTransition(R.anim.do_not_move, R.anim.do_not_move);
-            intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
-            startActivity(intent);
+
+            new AlertDialog.Builder(this)
+                    .setTitle("Reset")
+                    .setMessage("Reset will clear all subjects and grades. There is no undo. Continue?")
+                    .setIcon(android.R.drawable.ic_dialog_alert)
+                    .setPositiveButton("Reset", new DialogInterface.OnClickListener() {
+
+                        public void onClick(DialogInterface dialog, int whichButton) {
+                            Intent intent = getIntent();
+                            finish();
+                            overridePendingTransition(R.anim.do_not_move, R.anim.do_not_move);
+                            intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+                            startActivity(intent);
+                        }
+                    })
+                    .setNegativeButton("Cancel", null).show();
             return true;
         }
 
