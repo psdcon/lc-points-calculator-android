@@ -44,11 +44,11 @@ public class CustomSpinnerAdapter extends ArrayAdapter {
         textView.setText(array[position]);
         // Make "group"
         if(array[position].equals("Languages") ||
-                array[position].equals("Laboratory sciences") ||
+                array[position].equals("Laboratory Sciences") ||
                 array[position].equals("Business Studies") ||
-                array[position].equals("Applied sciences") ||
+                array[position].equals("Applied Sciences") ||
                 array[position].equals("Arts and Humanities") ||
-                array[position].equals("Non-curricular languages")){
+                array[position].equals("Non-curricular Languages")){
 
             textView.setTextSize(14);
             textView.setTextColor(Color.parseColor("#8A000000"));
@@ -64,11 +64,11 @@ public class CustomSpinnerAdapter extends ArrayAdapter {
     public boolean isEnabled(int position) {
 //        return super.isEnabled(position);
         if(array[position].equals("Languages") ||
-                array[position].equals("Laboratory sciences") ||
+                array[position].equals("Laboratory Sciences") ||
                 array[position].equals("Business Studies") ||
-                array[position].equals("Applied sciences") ||
+                array[position].equals("Applied Sciences") ||
                 array[position].equals("Arts and Humanities") ||
-                array[position].equals("Non-curricular languages")){
+                array[position].equals("Non-curricular Languages")){
             return false;
         }
         return true;

@@ -52,19 +52,19 @@ public class MainActivity extends AppCompatActivity {
             "Languages",
             "French", "German", "Spanish", "Italian", "Japanese", "Russian", "Arabic", "Latin", "Ancient Greek", "Hebrew",
 
-            "Laboratory sciences",
+            "Laboratory Sciences",
             "Physics", "Chemistry", "Biology", "Agricultural Science", "Physics and Chemistry", "Applied Mathematics",
 
             "Business Studies",
             "Accounting", "Agricultural Economics", "Business", "Economics",
 
-            "Applied sciences",
+            "Applied Sciences",
             "Technology", "Engineering", "Home Economics, Scientific and Social", "Design and Communication Graphics", "Construction Studies",
 
             "Arts and Humanities",
             "Art", "Classical Studies", "Geography", "History", "Music", "Religious Education",
 
-            "Non-curricular languages",
+            "Non-curricular Languages",
             "Bulgarian", "Croatian", "Czech", "Danish", "Dutch", "Estonian", "Finnish", "Greek", "Hungarian", "Latvian", "Lithuanian", "Polish", "Portuguese", "Romanian", "Slovak", "Swedish",
     };
 
@@ -101,6 +101,7 @@ public class MainActivity extends AppCompatActivity {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
         boolean previouslyStarted = prefs.getBoolean(getString(R.string.pref_previously_started), false);
         if (!previouslyStarted) {
+            // Open about activity on first launch
             SharedPreferences.Editor edit = prefs.edit();
             edit.putBoolean(getString(R.string.pref_previously_started), Boolean.TRUE);
             edit.apply();
@@ -520,8 +521,8 @@ public class MainActivity extends AppCompatActivity {
         } else if (id == R.id.action_reset) {
 
             new AlertDialog.Builder(this)
-                    .setTitle("Reset")
-                    .setMessage("Reset will clear all subjects and grades. There is no undo. Continue?")
+                    .setTitle("Careful")
+                    .setMessage("Reset will clear all subjects and grades. There is no undo.")
                     .setIcon(android.R.drawable.ic_dialog_alert)
                     .setPositiveButton("Reset", new DialogInterface.OnClickListener() {
 
