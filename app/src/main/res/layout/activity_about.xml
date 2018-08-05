@@ -10,7 +10,7 @@
         android:id="@+id/revealable_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#43A047"
+        android:background="@color/colorAccent"
         android:orientation="vertical">
 
         <ScrollView
@@ -21,10 +21,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
+                android:paddingBottom="@dimen/activity_vertical_margin"
                 android:paddingLeft="@dimen/activity_horizontal_margin"
                 android:paddingRight="@dimen/activity_horizontal_margin"
-                android:paddingTop="@dimen/activity_vertical_margin"
-                android:paddingBottom="@dimen/activity_vertical_margin">
+                android:paddingTop="@dimen/activity_vertical_margin">
 
                 <TextView
                     android:layout_width="match_parent"
@@ -38,7 +38,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:paddingBottom="10dp"
-                    android:text="Calculate the total points from your best 6 subjects based on the new Leaving Certificate Grading Scale from 2017." />
+                    android:text="Calculate the total points from your best 6 subjects based on the Leaving Certificate Grading Scale introduced in 2017." />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -142,7 +142,14 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:paddingBottom="10dp"
-                    android:text="Bonus 25 points for maths awarded for H6 and above" />
+                    android:text="Bonus 25 points for maths are awarded for H6 and above." />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="10dp"
+                    android:gravity="center_horizontal"
+                    android:text="Very best of luck! 🤞🍀✨" />
 
             </LinearLayout>
 
@@ -164,8 +171,9 @@
                 android:layout_gravity="bottom"
                 android:layout_marginBottom="18dp"
                 android:layout_weight="2"
+                android:backgroundTint="@color/colorPrimaryLight"
                 android:text="Got it!"
-                android:textColor="@android:color/primary_text_light" />
+                android:textColor="@android:color/primary_text_dark" />
 
         </LinearLayout>
 

@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">LC Points Calculator 2017</string>
+    <string name="app_name">LC Points Calculator</string>
     <string name="spinner_prompt">Select Subject...</string>
 
     <!--For first time run-->

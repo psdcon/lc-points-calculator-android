@@ -1,4 +1,4 @@
-package com.iamapaulling.paul.leavingcertcalculator;
+package com.psdcon.paul.leavingcertcalculator;
 
 import android.content.Context;
 import android.graphics.Color;
@@ -35,7 +35,7 @@ public class CustomSpinnerAdapter extends ArrayAdapter {
     }
 
     public View getCustomView(int position, View convertView, ViewGroup parent) {
-        LayoutInflater inflater = (LayoutInflater) context.getSystemService( Context.LAYOUT_INFLATER_SERVICE );
+        LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View mySpinner = inflater.inflate(R.layout.custom_spinner_item, parent, false);
 
         View rowLayout = mySpinner.findViewById(R.id.row_layout);
@@ -43,12 +43,12 @@ public class CustomSpinnerAdapter extends ArrayAdapter {
 
         textView.setText(array[position]);
         // Make "group"
-        if(array[position].equals("Languages") ||
-                array[position].equals("Laboratory sciences") ||
+        if (array[position].equals("Languages") ||
+                array[position].equals("Laboratory Sciences") ||
                 array[position].equals("Business Studies") ||
-                array[position].equals("Applied sciences") ||
+                array[position].equals("Applied Sciences") ||
                 array[position].equals("Arts and Humanities") ||
-                array[position].equals("Non-curricular languages")){
+                array[position].equals("Non-curricular Languages")) {
 
             textView.setTextSize(14);
             textView.setTextColor(Color.parseColor("#8A000000"));
@@ -63,12 +63,12 @@ public class CustomSpinnerAdapter extends ArrayAdapter {
     @Override
     public boolean isEnabled(int position) {
 //        return super.isEnabled(position);
-        if(array[position].equals("Languages") ||
-                array[position].equals("Laboratory sciences") ||
+        if (array[position].equals("Languages") ||
+                array[position].equals("Laboratory Sciences") ||
                 array[position].equals("Business Studies") ||
-                array[position].equals("Applied sciences") ||
+                array[position].equals("Applied Sciences") ||
                 array[position].equals("Arts and Humanities") ||
-                array[position].equals("Non-curricular languages")){
+                array[position].equals("Non-curricular Languages")) {
             return false;
         }
         return true;

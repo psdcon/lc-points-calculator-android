@@ -14,7 +14,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:text="Total Points"
+        android:text="Your Points"
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
     <TextView
@@ -48,8 +48,8 @@
         android:id="@+id/linearLayout1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
         android:layout_gravity="bottom"
+        android:orientation="horizontal"
         android:weightSum="2">
 
         <Button
@@ -57,6 +57,8 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:backgroundTint="@color/colorPrimaryLight"
+            android:textColor="@android:color/primary_text_dark"
             android:text="Add Subject" />
 
         <Button
@@ -64,6 +66,8 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:backgroundTint="@color/colorPrimaryLight"
+            android:textColor="@android:color/primary_text_dark"
             android:text="Add LCVP" />
 
     </LinearLayout>

@@ -1,4 +1,4 @@
-package com.iamapaulling.paul.leavingcertcalculator;
+package com.psdcon.paul.leavingcertcalculator;
 
 import android.animation.Animator;
 import android.annotation.TargetApi;
